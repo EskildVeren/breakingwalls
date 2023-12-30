@@ -11,8 +11,14 @@ class Player {
         if (direction == "right") {
             this.x += this.vx * deltaTime
         }
-        if (direction == "left") {
+        else if (direction == "left") {
             this.x -= this.vx * deltaTime
+        }
+        if (this.x < 0) {
+            this.x = 0
+        }
+        if (this.x > canvasWidth - this.width) {
+            this.x = canvasWidth - this.width
         }
     }
 
