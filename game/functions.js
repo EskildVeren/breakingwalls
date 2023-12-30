@@ -26,21 +26,24 @@ body.addEventListener("keyup", resetInput)
 
 function checkBallPlayerCollission(player, ball) {
     if (xCollission(ball, player) && yCollission(ball, player)) {
-        ball.vy *= -1   
+        ball.vy = -Math.abs(ball.vy)
     }
 }
 
-
 function xCollission(object1, object2) {
-    if ((object1.x + object1.width > object2.x) && !(object1.x > object2.x + object2.width)) {
+    if ((object1.x + object1.width > object2.x) && (object1.x < object2.x + object2.width)) {
         return true
     }
     return false
 }
 
 function yCollission(object1, object2) {
-    if (object1.y + object1.width > object2.y) {
+    if ((object1.y + object1.height > object2.y) && (object1.y < object2.y + object2.height)) {
         return true   
     }
     return false
+}
+
+function checckBallCollission() {
+    
 }
