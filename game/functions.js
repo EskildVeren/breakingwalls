@@ -9,7 +9,6 @@ function playerInput(e) {
     if (e.key == "ArrowRight") {
         direction = "right"
     }
-    console.log(direction);
 }
 
 function resetInput(e) {
@@ -19,8 +18,29 @@ function resetInput(e) {
     if (e.key == "ArrowRight" && direction == "right") {
         direction = null
     }
-    console.log(direction);
 }
 
 body.addEventListener("keydown", playerInput)
 body.addEventListener("keyup", resetInput)
+
+
+function checkBallPlayerCollission(player, ball) {
+    if (xCollission(ball, player) && yCollission(ball, player)) {
+        ball.vy *= -1   
+    }
+}
+
+
+function xCollission(object1, object2) {
+    if ((object1.x + object1.width > object2.x) && !(object1.x > object2.x + object2.width)) {
+        return true
+    }
+    return false
+}
+
+function yCollission(object1, object2) {
+    if (object1.y + object1.width > object2.y) {
+        return true   
+    }
+    return false
+}

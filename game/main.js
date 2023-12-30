@@ -5,6 +5,7 @@ let lastTimestamp = 0;
 //Creating objects
 gameBoard = new GameBoard()
 player = new Player(100, 350, 50, 15, 5)
+ball = new Ball(200, 200, 5, 5)
 gameBoard.draw()
 player.draw()
 
@@ -18,10 +19,13 @@ function main(timestamp) {
     if (direction != null) {
         player.move(deltaTime, direction)
     }
-
+    ball.move(deltaTime)
 
     gameBoard.draw()
     player.draw()
+    ball.draw()
+
+    checkBallPlayerCollission(player, ball)
 }
 
 
