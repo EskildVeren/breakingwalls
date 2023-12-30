@@ -5,7 +5,7 @@ let lastTimestamp = 0;
 //Creating objects
 gameBoard = new GameBoard()
 player = new Player(100, 350, 50, 15, 5)
-ball = new Ball(200, 200, 5, 5)
+ball = new Ball(200, 200, 10, 10, 5, 5)
 gameBoard.draw()
 player.draw()
 

@@ -1,15 +1,8 @@
-class Ball {
-    constructor(x, y, vx, vy) {
-        this.x = x
-        this.y = y
+class Ball extends GameObject{
+    constructor(x, y, width, height, vx, vy) {
+        super(x, y, width, height)
         this.vx = vx
         this.vy = vy
-        this.width = 10
-        this.height = 10
-    }
-    draw() {
-        ctx.fillStyle = "white"
-        ctx.fillRect(this.x, this.y, this.width, this.height)
     }
     move(deltaTime) {
         this.x += this.vx*deltaTime
